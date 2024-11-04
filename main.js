@@ -13,6 +13,10 @@ async function fetchProducts() {
     products.forEach(product => {
       const productDiv = document.createElement('div');
       // Set the inner html on the created div with the product data
+
+    // This is for task 3 to format the product data neatly. - 
+    // TASK 3
+
       productDiv.innerHTML = `
               <h2>${product.fields.name}</h2>
               <p>Company: $${product.fields.company}</p>
