@@ -14,12 +14,12 @@ async function fetchProducts() {
       const productDiv = document.createElement('div');
       // Set the inner html on the created div with the product data
 
-    // This is for task 3 to format the product data neatly. - 
+    // This is for task 3 to format the product data neatly. -
     // TASK 3
 
       productDiv.innerHTML = `
               <h2>${product.fields.name}</h2>
-              <p>Company: $${product.fields.company}</p>
+              <p>Company: ${product.fields.company}</p>
               <p>Price: ${product.fields.price}</p>
               <img src="${product.fields.image[0].url}" alt="${product.fields.name}" width="100" height="100"> </img>
           `;
@@ -34,6 +34,11 @@ async function fetchProducts() {
     displayProducts(products);
   }).catch(
     error => {
-      console.error('Error fetching products:', error);
+
+    // Task 4: when the error is thrown, display the error message rather than logging it in console.
+    // TASK 4
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'Failed to load products. Please try again later.';
+    productContainer.appendChild(errorMessage);
     }
   );
